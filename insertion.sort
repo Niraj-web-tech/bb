@@ -1,0 +1,87 @@
+#include<iostream>
+using namespace std;
+
+class student {
+    public:
+    int roll;
+    string name;
+    int marks;
+    void read(int i);
+    void display();
+    void insertion_sort(student arr[],int n);
+};
+ void student::read(int i)
+ { `
+        cout<<"enter the name of student"<<i+1<<endl;
+        cin>>name;
+        cout<<"enter the roll of student"<<i+1<<endl;
+        cin>>roll;
+        cout<<"enter marks of the student"<<i+1<<endl;
+        cin>>marks;
+ } 
+ void student::display()
+ {
+        cout<<name<<" ";
+        cout<<roll<<" ";
+        cout<<marks<<" ";
+ }
+
+ void student::insertion_sort(student arr[],int n)
+ { 
+    for(int i=1;i<n;i++)
+    {
+        int j=i-1;
+       student val = arr[i];
+        while(j>=0 && arr[j].roll>val.roll){
+            arr[j+1]=arr[j];
+            j=j-1;
+        }
+        arr[j+1]=val;
+    }
+ }
+ int main()
+ {
+    int n; 
+    cout<<"no of students";
+    cin>>n;
+
+
+    student st[n],x; 
+    int k;
+    while(k!=4){
+        cout<<"enter choice"<<endl;
+        cout<<"1.enter record"<<endl;
+        cout<<"2.display record"<<endl;
+        cout<<"3.ascending order using insertion sort"<<endl;
+        cout<<"4.exit"<<endl;
+        cin>>k;
+       
+        switch(k)
+        {
+            case 1:
+    for(int i=0;i<n;i++){
+        st[i].read(i);
+    }
+    break;
+    case 3:
+   x.insertion_sort(st,n);
+   break;
+   case 2:
+   for(int i=0;i<n;i++)
+   {
+    st[i].display();
+   } 
+   break;
+ }
+ 
+ }
+ }
+
+
+
+
+
+
+
+
+
